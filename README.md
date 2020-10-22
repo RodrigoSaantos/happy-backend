@@ -114,4 +114,6 @@ $ npm dev
 
 # 📖 Resultado
 ---
-![Alt Text](https://raw.githubusercontent.com/RodrigoSaantos/happy-web/main/happy_web.gif)
+![Alt Text](https://raw.githubusercontent.com/RodrigoSaantos/gifs/main/happy_web.gif?token=APEID24RO3QYPX2EJOYVIXC7SH6AC)
+
+![Alt Text](https://raw.githubusercontent.com/RodrigoSaantos/gifs/main/happy-mobile-v1.gif?token=APEID22D4DX57WPP6MFWWN27SH4BG)
