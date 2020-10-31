@@ -207,10 +207,10 @@ export default {
       instructions,
       opening_hours,
       open_on_weekends,
-      pending
-  
+      
     } = request.body
-
+    const pending = false
+    
     const { id } = request.params
   
     const orphanagesRepository = getRepository(Orphanages)
