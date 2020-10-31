@@ -1,4 +1,4 @@
-import { getRepository } from 'typeorm'
+import { getRepository, ReplSet } from 'typeorm'
 import { Request, Response} from 'express'
 
 import userView from '../views/users_view'
@@ -157,6 +157,22 @@ export default {
       }
   },
 
+  async showUserId( request: Request, response: Response) {
+    const {email} = request.query
+
+    const emailUserRepository = getRepository(Users)
+
+    const userEmail = await emailUserRepository.findOneOrFail({
+      select: ['id'],
+      where: {
+        email: email,
+      }
+    })
+
+    return response.status(200).json(userEmail)
+
+  },
+
   async deleteUsers( request: Request, response: Response ) {
     const { id } = request.params
 
@@ -253,6 +269,22 @@ export default {
   
     return response.status(201).json(orphanage)
   
+  },
+
+  async updatePassword( request: Request, response: Response ) {
+    const {id} = request.params
+
+    const { novaSenha } = request.body
+
+    const password = bcrypt.hashSync(novaSenha, 10)
+
+    const passwordRepository = getRepository(Users)
+
+    const passwordUpdate = await passwordRepository.update(id, {
+      password: password
+    })
+
+    response.status(200).json('Redefinição de senha com sucesso!')
   },
 
   async imagesOrphanage( request: Request, response: Response ) {
